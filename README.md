@@ -55,24 +55,3 @@ These figures come from a publicly documented, reproducible analysis of the same
 
 Reference analysis: https://github.com/ndkn-code/online-retail-analytics
 
-## Personal details to fill before submitting
-
-- Full Name: `[Your Name]`
-- Email: `[Your Email]`
-- Contact: `[Your Contact]`
-- College / University: `[Your College / University]`
-
-## Suggested final Google Drive structure
-
-```text
-Online_Retail_Data_Analyst_Assessment/
-├── assessment_workbook.xlsx
-├── data/
-├── src/
-├── notebooks/
-├── dashboard/
-├── presentation/
-├── assets/
-├── docs/
-└── README.md
-```
