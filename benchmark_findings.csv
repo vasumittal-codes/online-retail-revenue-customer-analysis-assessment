@@ -1,0 +1,15 @@
+Insight,Metric,Value,Unit,Interpretation
+Revenue concentration,UK revenue share,85.5,%,Revenue depends heavily on UK market
+Seasonality,Nov-2010 revenue,1.43,GBP million,Recurring late-year peak
+Seasonality,Nov-2011 revenue,1.45,GBP million,Peak repeated next year
+Customer value,Champions customer share,25.2,%,Small customer group
+Customer value,Champions revenue share,69.2,%,Disproportionately high value
+Customer value,At Risk customer share,14.1,%,Material win-back pool
+Customer value,At Risk revenue share,9.3,%,Proven revenue at risk
+Retention,Month-1 repeat rate,21,%,Early repeat is the main gap
+Retention,Lifetime repeat rate,72,%,Most identified customers eventually repeat
+Returns,Return revenue rate,3.65,%,Manageable overall; target by SKU/process
+Returns,Return unit rate,4.18,%,Slightly higher than value rate
+Concentration,Top 10 customer revenue share,16.1,%,Customer revenue is concentrated
+Concentration,Top 100 customer revenue share,37.6,%,High-value tail matters
+Concentration,Top ~23 percent customer revenue share,80,%,Approximate Pareto threshold

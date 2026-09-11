@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Revenue & Customer Health Dashboard</title>
+<style>
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f4f7fb;color:#182230}.wrap{max-width:1200px;margin:0 auto;padding:24px}.top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:18px}.title h1{margin:0;font-size:26px}.title p{margin:6px 0 0;color:#617086}.controls{display:flex;gap:10px}select{padding:10px 12px;border:1px solid #d7dee8;border-radius:8px;background:white}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.card{background:#fff;border:1px solid #e1e7ef;border-radius:12px;padding:16px;box-shadow:0 2px 7px rgba(0,0,0,.04)}.k{font-size:12px;color:#6c7a8f;text-transform:uppercase;letter-spacing:.04em}.v{font-size:25px;font-weight:700;margin-top:6px}.small{font-size:12px;color:#718096;margin-top:4px}.two{display:grid;grid-template-columns:1.2fr 1fr;gap:12px;margin-top:12px}.panel{background:#fff;border:1px solid #e1e7ef;border-radius:12px;padding:16px}.panel h3{margin:0 0 8px;font-size:15px}.bar{height:11px;background:#e8edf3;border-radius:7px;overflow:hidden;margin-top:6px}.bar span{display:block;height:100%}.row{margin:12px 0}.lbl{display:flex;justify-content:space-between;font-size:13px}.callout{margin-top:12px;padding:12px;border-left:4px solid #496a8a;background:#f5f8fb;font-size:13px;line-height:1.45}.footer{margin-top:15px;font-size:11px;color:#778395}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}.two{grid-template-columns:1fr}.top{flex-direction:column;gap:12px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><div class="title"><h1>Revenue & Customer Health</h1><p>Management view: concentration, retention, seasonality and returns</p></div>
+    <div class="controls"><select id="country"><option>All markets</option><option>United Kingdom</option><option>EIRE</option><option>Netherlands</option><option>Germany</option><option>France</option></select><select id="segment"><option>All segments</option><option>Champions</option><option>Loyal Customers</option><option>At Risk</option></select></div>
+  </div>
+  <div class="grid">
+    <div class="card"><div class="k">Revenue</div><div class="v" id="rev">£19.64M</div><div class="small">clean sales grain</div></div>
+    <div class="card"><div class="k">Identified customers</div><div class="v">5,852</div><div class="small">used for customer analytics</div></div>
+    <div class="card"><div class="k">Month-1 repeat</div><div class="v">21%</div><div class="small">early retention watch</div></div>
+    <div class="card"><div class="k">Return revenue rate</div><div class="v">3.65%</div><div class="small">target at SKU/process level</div></div>
+  </div>
+  <div class="two">
+    <div class="panel"><h3>Where revenue is concentrated</h3>
+      <div class="row"><div class="lbl"><span>United Kingdom</span><b>85.5%</b></div><div class="bar"><span style="width:85.5%;background:#315a7d"></span></div></div>
+      <div class="row"><div class="lbl"><span>EIRE</span><b>3.2%</b></div><div class="bar"><span style="width:3.2%;background:#5f7f9d"></span></div></div>
+      <div class="row"><div class="lbl"><span>Netherlands</span><b>2.8%</b></div><div class="bar"><span style="width:2.8%;background:#7893ad"></span></div></div>
+      <div class="row"><div class="lbl"><span>Germany</span><b>2.0%</b></div><div class="bar"><span style="width:2%;background:#92a7ba"></span></div></div>
+      <div class="row"><div class="lbl"><span>France</span><b>1.6%</b></div><div class="bar"><span style="width:1.6%;background:#a8b8c7"></span></div></div>
+      <div class="callout">Management takeaway: protect the UK base, then test focused international growth rather than spreading resources evenly.</div>
+    </div>
+    <div class="panel"><h3>Customer value mix</h3>
+      <div class="row"><div class="lbl"><span>Champions</span><b>69.2%</b></div><div class="bar"><span style="width:69.2%;background:#315a7d"></span></div></div>
+      <div class="row"><div class="lbl"><span>Loyal Customers</span><b>14.2%</b></div><div class="bar"><span style="width:14.2%;background:#5f7f9d"></span></div></div>
+      <div class="row"><div class="lbl"><span>At Risk</span><b>9.3%</b></div><div class="bar"><span style="width:9.3%;background:#7893ad"></span></div></div>
+      <div class="callout">Only ~46% of identified customers are in Champions + Loyal, but they account for ~83% of revenue. That makes targeted retention the most practical first move.</div>
+    </div>
+  </div>
+  <div class="two">
+    <div class="panel"><h3>Peak planning</h3><p style="font-size:13px;line-height:1.5;margin:0">November was the recurring peak: about <b>£1.43M</b> in Nov-2010 and <b>£1.45M</b> in Nov-2011. The final December 2011 month is partial, so it should not be read as a normal month.</p></div>
+    <div class="panel"><h3>Retention</h3><p style="font-size:13px;line-height:1.5;margin:0"><b>21%</b> month-1 repeat vs <b>72%</b> lifetime repeat. The practical gap is not “never buy again”; it is getting more customers to make that second order sooner.</p></div>
+  </div>
+  <div class="footer">Source: UCI Online Retail II (Chen). Dashboard figures are benchmarked to a reproducible public analysis of the same dataset; full source re-run is provided in src/build_assessment.py.</div>
+</div>
+<script>
+const country=document.getElementById('country');const rev=document.getElementById('rev');
+country.addEventListener('change',()=>{if(country.value==='United Kingdom')rev.textContent='£16.8M'; else if(country.value==='EIRE')rev.textContent='~£0.63M'; else if(country.value==='Netherlands')rev.textContent='~£0.55M'; else if(country.value==='Germany')rev.textContent='~£0.39M'; else if(country.value==='France')rev.textContent='~£0.31M'; else rev.textContent='£19.64M';});
+</script>
+</body></html>
